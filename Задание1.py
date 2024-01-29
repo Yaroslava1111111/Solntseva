@@ -11,8 +11,15 @@ BOOKS_DATABASE = [
         }
     ]
 class Book:
-
+    """ Класс для книг """    
     def __init__(self, id: int, name: str, pages: int):
+        """
+        Создание и подготовка к работе объекта "Книга"
+
+        :param id: Учетный номер(id) книги
+        :param name: Название книги
+        :param pages: Количество страниц
+        """
         self.id = id
         self.name = name
         self.pages = pages
