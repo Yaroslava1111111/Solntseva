@@ -12,8 +12,16 @@ BOOKS_DATABASE = [
 ]
 
 class Book:
-
+    """ Класс для книг """
     def __init__(self, id: int, name: str, pages: int):
+        """
+        Создание и подготовка к работе объекта "Книга"
+
+        :param id: Учетный номер(id) книги
+        :param name: Название книги
+        :param pages: Количество страниц
+
+        """
         self.id = id
         self.name = name
         self.pages = pages
@@ -24,6 +32,7 @@ class Book:
         return f'{self.__class__.__name__}(id_={self.id}, name={self.name!r}, pages={self.pages})'
 # TODO написать класс Book
 class Library:
+    """ Класс для библиотеки книг """
     def __init__(self, books=None):
         self.books = books
 
@@ -31,16 +40,14 @@ class Library:
     # Метод, возвращающий идентификатор для добавления новой книги в библиотеку
         if self.books is None:
             return 1
-        else:
-            return self.books[-1].id + 1
+        return self.books[-1].id + 1
 
     def get_index_by_book_id(self, book_id):
     # Метод, возвращающий индекс книги в списке
         books_list = [abook.id for abook in self.books]
         if book_id in books_list:
             return books_list.index(book_id)
-        else:
-            raise ValueError("Книги с запрашиваемым id не существует")
+        raise ValueError("Книги с запрашиваемым id не существует")
 
 # TODO написать класс Library
 
